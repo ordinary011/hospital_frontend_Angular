@@ -1,0 +1,36 @@
+
+<div id="signUp-box">
+  <div class="left">
+    <h1>Sign up</h1>
+
+    <form #regForm="ngForm">
+
+    <input type="text" name="name" placeholder="User Name" minLength="3" required ngModel />
+
+    <input type="text" name="lastName" placeholder="Last Name" minLength="3" required ngModel />
+
+    <label>
+      Male <input type="radio" name="gender" value="male" required ngModel /> 
+    </label>
+    <label>
+      Female <input type="radio" name="gender" value="female" required ngModel />
+    </label> 
+    <br> <br>
+
+    <input type="text" name="email" placeholder="Email" email required ngModel /> 
+
+    <input required type="password" name="password" placeholder="Password" required ngModel />
+
+    <input
+    required
+    type="password"
+    name="passwordConfirm"
+    placeholder="Confirm Password"
+    required
+    ngModel
+  />
+
+    <input type="submit" name="signup_submit" value="Sign me up" (click)="onSubmit(regForm)"/>
+  </form>
+  </div>
+</div>

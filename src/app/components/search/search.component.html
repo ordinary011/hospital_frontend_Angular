@@ -1,0 +1,9 @@
+<h2>Here is the result of your search:</h2>
+
+<h3 *ngIf="doctors.length < 1"><i>No results for your search</i></h3>
+
+<app-doctor
+  *ngFor="let doctor of doctors"
+  [doctorInput]="doctor"
+  (goToDoctorInfo)="goToDoctorInfo($event)"
+></app-doctor>

@@ -1,0 +1,11 @@
+<h2>{{ message.unit }}</h2>
+
+<h3>Here are our highly qualified doctors:</h3>
+
+
+<app-doctor
+  *ngFor="let doctor of doctors"
+  [doctorInput]="doctor"
+  (goToDoctorInfo)="goToDoctorInfo($event)"
+></app-doctor>
+

@@ -1,0 +1,62 @@
+<div class="doctor_info">
+  <div>
+    <h2><i>Doctor:</i> {{ message.name }} {{ message.lastName }}</h2>
+    <h3><i>Occupation:</i> {{ message.occupation }}</h3>
+    <h3><i>Period of Service:</i> {{ message.period_of_service }} year(s)</h3>
+    <h3><i>Phone number:</i> {{ message.phone_number }}</h3>
+    <h3><i>Email:</i> {{ message.email }}</h3>
+    <h3><i>Office:</i> {{ message.office }}</h3>
+    <h3><i>Floor:</i> {{ message.floor }}</h3>
+    <h3><i>Labour Days: </i>{{ labourDays }}</h3>
+  </div>
+  <div class="appreciation">
+
+    <div>
+        <h3>Would you like to appreciate the doctor?</h3>
+        <div class="product-review-stars">
+            <input type="radio" id="star5" name="rating" value="5" class="visuallyhidden" (click)="appreciate(5)" /><label for="star5" title="Rocks!" >★</label>
+            <input type="radio" id="star4" name="rating" value="4" class="visuallyhidden" (click)="appreciate(4)"/><label for="star4" title="Pretty good" >★</label>
+            <input type="radio" id="star3" name="rating" value="3" class="visuallyhidden" (click)="appreciate(3)"/><label for="star3" title="Meh">★</label>
+            <input type="radio" id="star2" name="rating" value="2" class="visuallyhidden" (click)="appreciate(2)"/><label for="star2" title="Kinda bad">★</label>
+            <input type="radio" id="star1" name="rating" value="1" class="visuallyhidden" 
+            (click)="appreciate(1)"/><label for="star1" title="Sucks big time">★</label>
+        </div> 
+    </div>
+
+    <div>
+        <h3> {{ markCount }} patient(s) appreciated the doctor</h3>
+        <h3> average appreciation: {{ avgMark | number:'1.2'}}</h3>
+    </div>
+
+  </div>
+  <div>
+      <h2>Comments:</h2>
+      <div *ngIf="comments.length > 0">
+          <app-comment
+          *ngFor='let comment of comments'
+          [commentInput]='comment'
+          (commentToDelete)="deleteComment($event)"
+          (commentToUpdate)="updateComment($event)"
+        ></app-comment>
+      </div>
+      
+      <span *ngIf="comments.length < 1">There are no comments yet</span>
+
+      <div *ngIf="!isLogged">
+          <br>
+          <span>Please logIn to leave a comment</span>
+      </div>
+
+      
+      <div *ngIf="isLogged">
+        <br>
+        <span>you can leave a comment about the doctor</span>
+        <form #commentForm="ngForm">
+          <input type="text" name="comment" required ngModel>
+          <button (click)="addComment(commentForm)">Send</button>
+        </form>
+      </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,28 @@
+<div id="logIn-box">
+  <div class="left">
+    <h1>Log In</h1>
+
+    <form #logForm="ngForm">
+      <input
+        type="text"
+        name="email"
+        placeholder="Email"
+        minLength="3"
+        email
+        required
+        ngModel
+      /><br />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        minLength="1"
+        required
+        ngModel
+      />
+
+      <input type="submit" name="logIn_submit" value="Log In" (click)="onSubmit(logForm)" />
+    </form>
+  </div>
+</div>

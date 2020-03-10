@@ -1,0 +1,21 @@
+<header class="header">
+  <h1>HOSPITAL</h1>
+  <nav class="navigation">
+    <div id="home_search">
+      <a routerLink="/">Main Page</a>
+      <form #searchForm="ngForm">
+        <input type="text" name="doctorName" placeholder="search for a doctor" required ngModel />
+        <button (click)="findDoctor(searchForm)">Search</button>
+      </form>
+    </div>
+
+    <div *ngIf="!isLogged">
+      <a routerLink="/logIn">Log In</a> | <a routerLink="/signUp">Sign up</a>
+    </div>
+
+    <div *ngIf="isLogged">
+      <a routerLink="/patient">Me (Patient)</a> |
+      <a routerLink="/logIn" (click)="logOut()">Log Out</a>
+    </div>
+  </nav>
+</header>

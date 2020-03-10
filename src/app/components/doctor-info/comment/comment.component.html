@@ -1,0 +1,20 @@
+
+<div>
+  <hr>
+  <span>
+    <strong>{{ commentInput.Patient.name }} {{ commentInput.Patient.name }}</strong>
+    has written:
+  </span>
+  <div *ngIf="!isUpdate">
+      <span><i>{{ commentInput.comment }}</i></span>
+  </div>
+  <form #updateForm="ngForm" *ngIf="isUpdate">
+      <input type="text" name="updatedComment" value="{{ commentInput.comment }}" required ngModel />
+      <button (click)="update(updateForm)">Edit</button>
+  </form>
+  <button *ngIf="isPatientComment" (click)="delComment()">Delete</button>
+  <button *ngIf="isPatientComment" (click)="updateComment()">UPDATE</button>
+  <hr>
+</div>
+
+

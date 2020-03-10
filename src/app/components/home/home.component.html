@@ -1,0 +1,9 @@
+<h2>Welcome to the website of our hospital</h2>
+<h2>Units of our hospital:</h2>
+
+<app-unit
+  *ngFor="let unit of units"
+  [unitInput]="unit"
+  (showUnitInfo)="showUnitInfo($event)"
+></app-unit>
+
