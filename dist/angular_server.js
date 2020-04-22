@@ -8,4 +8,6 @@ app.get("/", (req, res, next) => {
   res.sendFile("./client/index.html");
 });
 
-app.listen(4200, () => console.log("listenming on port 4200"));
+const port = process.env.PORT || 4200;
+
+app.listen(port, () => console.log("listenming on port 4200"));
